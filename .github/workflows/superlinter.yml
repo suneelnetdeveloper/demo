@@ -15,7 +15,7 @@ jobs:
         
         
       - name: Checkout code into go Module directory 
-        uses: github/checkout@v1
+        uses: actions/checkout@v1
         
         
         
