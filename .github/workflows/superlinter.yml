@@ -1,12 +1,12 @@
-name: Super-Linter
-
+name: Go
 on: [push]
-
 jobs:
+
   build:
-    name: build
+    name: Build
     runs-on: self-hosted
     steps:
+    
       - name: Set up Go 1.13
         uses: actions/setup-go@v1
         with:
@@ -18,8 +18,5 @@ jobs:
         uses: github/Checkout@v1
         
         
-      - name: Test
-        uses: go test ./..
-
         
      
