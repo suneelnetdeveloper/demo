@@ -1,20 +1,25 @@
 name: Super-Linter
 
-on: push
+on: [push]
 
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: build
     runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: action/checkout@v2
+      - name: Set up Go 1.13
+        uses: action/setup-go@v1
+        with:
+          go-version: 1.13
+        id: go
         
         
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code into go Module directory 
+        uses: github/Checkout@v1
+        
+        
+      - name: Test
+        uses: go test ./..
+
         
      
